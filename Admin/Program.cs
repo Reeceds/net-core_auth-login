@@ -25,6 +25,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
     }
 ).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+// ! Add for Identity redirect of path unauthorized routes
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+});
+
 var app = builder.Build();
 
 
