@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Admin.Controllers;
 
+[Authorize] // If any of these routes are attempted without user being logegd in, then site redirects to account/login
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
